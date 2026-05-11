@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Metamorphous&family=Michroma&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Supermercado+One&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -13,7 +14,7 @@ body {
     background-image: url(../project-3/images/BG.png);
     color: #fff;
     background-size: cover;
-    
+    overflow: hidden; /* Screen se bahar content nahi jayega */
 }
 
 /* ===========================
@@ -25,7 +26,7 @@ body {
     justify-content: space-between;
     padding: 12px 40px;
     position: relative;
-    
+    z-index: 10;
 }
 
 .nav-left {
@@ -35,16 +36,8 @@ body {
 }
 
 .nav-logo-img {
-    width: 100%;
     height: 30px;
     object-fit: contain;
-}
-
-.logo {
-    font-size: 14px;
-    font-weight: 800;
-    color: #fff;
-    letter-spacing: 3px;
 }
 
 .nav-center {
@@ -65,15 +58,8 @@ body {
     transition: color 0.2s;
 }
 
-.nav-link.active {
+.nav-link:hover, .nav-link.active {
     color: #fff;
-    border: 1px solid #fff;
-}
-
-.nav-link i {
-    font-size: 10px;
-    margin-left: 2px;
-    vertical-align: middle;
 }
 
 .nav-right {
@@ -97,30 +83,25 @@ body {
 
 #hero {
     position: relative;
-    height: 90vh;
-    min-height: 600px;
+    height: 70vh; /* Height kam ki taaki vision section fit ho */
     background-image: url('./images/Background.png');
     background-size: cover;
     background-position: center top;
-    background-repeat: no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
 }
 
 .hero-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     background: linear-gradient(
         to bottom,
         rgba(0, 0, 0, 0.15) 0%,
         rgba(0, 0, 0, 0.25) 40%,
         rgba(0, 0, 0, 0.6) 75%,
-        rgba(17, 17, 17, 1) 100%
+        rgba(44, 38, 49, 1) 100% /* Vision section ke color se match kiya */
     );
     z-index: 1;
 }
@@ -130,19 +111,15 @@ body {
     text-align: center;
     z-index: 2;
     width: 100%;
-    padding: 0 40px;
 }
 
 .hero-subtitle {
     font-family: 'Playfair Display', serif;
     font-style: italic;
-    font-size: 22px;
-    font-weight: 700;
+    font-size: 18px;
     color: #e0d5c5;
-    letter-spacing: 1px;
-    margin-bottom: 5px;
-    text-align: center;
-    padding-right: 60%;
+    padding-right: 50%;
+    margin-bottom: -10px;
 }
 
 .hero-title-wrapper {
@@ -150,16 +127,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 5px;
 }
 
 .hero-title {
-    font-size: 120px;
+    font-size: 100px; /* Thoda chota kiya balance ke liye */
     font-weight: 900;
     color: #fff;
     letter-spacing: 8px;
-    line-height: 1;
-    text-align: center;
     font-family: 'Metamorphous', serif;
 }
 
@@ -172,121 +146,99 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -38%); 
-    width: 400px;
+    transform: translate(-50%, -35%); 
+    width: 320px; /* Monkey ka size optimize kiya */
     z-index: 3;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
-
 
 .hero-monkey {
     width: 100%;
     height: auto;
-    display: block;
-    background: transparent;
-    background-color: transparent;
-    margin-top: 14%;
+    margin-top: 15%;
 }
-
 
 .hero-tagline {
     font-family: 'Playfair Display', serif;
     font-style: italic;
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 18px;
     color: #d4c9b8;
-    letter-spacing: 1px;
-    text-align: center;
-    padding-left: 60%;
-    margin-bottom: 10px;
+    padding-left: 50%;
+    margin-top: -10px;
 }
 
 .mint-btn {
     display: inline-block;
-    margin-top: 16px;
-    padding: 18px 72px;
+    margin-top: 30px;
+    padding: 14px 50px;
     background-color: #c9a227;          
     color: #111;
     text-decoration: none;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
-    letter-spacing: 4px;
+    letter-spacing: 3px;
     border-radius: 6px;
     position: relative;
-    z-index: 4;                          
-    box-shadow: 0 4px 24px rgba(201, 162, 39, 0.35);
-    transition: background-color 0.2s, transform 0.2s;
-}
-
-.mint-btn:hover {
-    background-color: #ddb62e;
-    transform: translateY(-2px);
+    z-index: 10;
+    box-shadow: 0 4px 20px rgba(201, 162, 39, 0.4);
 }
 
 .hero-curve {
     position: absolute;
-    bottom: -2px;
-    left: -5%;
-    width: 110%;
-    height: 100px;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 60px;
     background-color: #2C2631;
-    border-radius: 90% 90% 0 0;
+    border-radius: 50% 50% 0 0;
     z-index: 1;
 }
 
 #vision {
     background-color: #2C2631;
-    padding: 40px 100px 80px;
+    height: 30vh; 
+    padding: 0 100px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     position: relative;
     z-index: 2;
-    margin-bottom: 5%;
 }
 
 .vision-title {
-    font-size: 38px;
+    font-size: 28px;
     font-family: "Michroma", sans-serif;
-    font-weight: 900;
-    letter-spacing: 10px;
-    color: #fff;
-    margin-bottom: 16px;
+    letter-spacing: 8px;
+    margin-bottom: 6px;
 }
 
 .vision-divider {
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 14px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 .divider-line {
-    display: block;
-    width: 70%;
-    height: 30px;
+    width: 60%;
+    height: auto;
+    max-height: 20px;
 }
-
 
 .vision-content {
     display: flex;
-    gap: 60px;
+    gap: 40px;
     text-align: left;
-}
-
-.vision-col {
-    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 3%;
 }
 
 .vision-col p {
-    font-size: 14px;
+    font-size: 13px;
     color: #999;
-    line-height: 1.9;
-    font-weight: 400;
+    line-height: 1.6;
 }
 
 .vision-col strong {
     color: #fff;
-    font-weight: 600;
 }
